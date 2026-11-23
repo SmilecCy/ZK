@@ -150,11 +150,13 @@ class DocumentSplitNode(BaseNode):
         if len(texts) < 2:
             return [section]
         sub_section = []
+        part_counter = {}
         for idx,text  in enumerate(texts):
-            sub_section.append({"title":title+"-"f"{idx+1}",
+            part_counter[parent_title] = part_counter.get(parent_title, 0) + 1
+            n = part_counter[parent_title]
+            sub_section.append({"title":f"{title}-{n}",
                                 "parent_title":parent_title,
                                 "file_title":file_title,
-                                "part": f"{idx + 1}",
                                 "body":text
             })
         return sub_section
@@ -189,13 +191,15 @@ class DocumentSplitNode(BaseNode):
     def _assemble_chunk(self, final_sections:list[Dict[str,str]])->list[Dict[str,Any]]:
         self.log_step("step5", f"组装最终切片, 输入章节数: {len(final_sections) if final_sections else 0}")
         final_chunks = []
-        for section in final_sections:
-            final_chunks.append({"title":section.get("title"),
+        for idx,section in enumerate(final_sections):
+            chunk = ({"title":section.get("title"),
                                  "parent_title":section.get("parent_title"),
                                  "file_title":section.get("file_title"),
                                  "content":section.get("title")+"\n\n"+section.get("body")
 
             })
+            chunk["part"] = idx+1
+            final_chunks.append(chunk)
         self.logger.info(f"组装完成, 最终切片数: {len(final_chunks)}")
         return final_chunks
 

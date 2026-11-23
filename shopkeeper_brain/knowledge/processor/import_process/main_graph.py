@@ -144,8 +144,8 @@ def run_import_graph(import_file_path: str, file_dir: str) -> dict:
 if __name__ == "__main__":
     setup_logging()
 
-    import_file_path = r"D:\workspace\python\PythonProject\shopkeeper_brain\knowledge\processor\import_process\temp_dir\万用表RS-12的使用.pdf"
-    file_dir = r"D:\workspace\python\PythonProject\shopkeeper_brain\knowledge\processor\import_process\temp_dir"
+    import_file_path = r"G:\PY_SD\SD\ZK\文档\md\万用表RS-12的使用_new.md"
+    file_dir = r"G:\PY_SD\SD\ZK\文档\md"
 
     final_state = run_import_graph(import_file_path, file_dir)
     print(json.dumps(final_state, indent=4, ensure_ascii=False))
