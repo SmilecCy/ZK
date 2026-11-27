@@ -42,7 +42,7 @@ class ImportGraphState(TypedDict, total=False):
     import_file_path: str  # 导入文件路径,pdf所在路径，文件及路径的全路径。
 
     #D:\workspace\python\PythonProject\shopkeeper_brain\knowledge\processor\import_process\temp_dir\
-    file_dir: str  # 导入(出)文件目录，pdf转换为md存放的目录，父目录级别
+    file_dir: str  # 导入(222出)文件目录，pdf转换为md存放的目录，父目录级别
 
     #D:\workspace\python\PythonProject\shopkeeper_brain\knowledge\processor\import_process\temp_dir\
     pdf_path: str  # PDF 文件路径，不含文件名称的pdf目录

@@ -1,4 +1,4 @@
-from typing import Dict, List
+from typing import Dict, List, Any
 from collections import defaultdict
 
 
@@ -24,8 +24,8 @@ _NODE_NAME_TO_CN: Dict[str, str] = {
     "upload_file": "上传文件",
     "entry_node": "检查文件",
     "pdf_to_md_node": "PDF转Markdown",
-    "md_to_img_node": "Markdown图片处理",
     "document_split_node": "文档切分",
+    "md_to_img_node": "Markdown图片处理",
     "item_name_recognition_node": "主体名称识别",
     "embedding_chunk_node": "向量生成",
     "import_milvus_node": "导入向量数据库",
@@ -117,7 +117,7 @@ def get_node_durations(task_id: str) -> Dict[str, float]:
     """获取所有节点的耗时"""
     return dict(_tasks_duration.get(task_id, {}))
 
-def get_task_info(task_id: str) -> Dict[str, any]:
+def get_task_info(task_id: str) -> Dict[str, Any]:
     """
     获取任务的全局信息（状态 + 运行中节点 + 已完成节点）
     :param task_id: 任务ID

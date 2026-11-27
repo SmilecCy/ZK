@@ -106,7 +106,7 @@ def create_import_graph() -> CompiledStateGraph:
 
     # 4.编译图
     return graph_pipeline.compile()
-
+22
 
 kb_import_graph_app = create_import_graph()  # CompiledStateGraph
 
